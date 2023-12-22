@@ -15,30 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// 获取并显示帖子详情
-//function fetchPostDetails(postId) {
-//    fetch(`http://localhost:8000/posts/${postId}`)  // 使用你的 FastAPI 端点
-//        .then(response => response.json())
-//        .then(data => {
-//            console.log("Received data:", data);  // 打印查看接收到的数据
-//            if (data.posts && data.posts.length > 0) {
-//                const post = data.posts[0];
-//                const postDetailsDiv = document.getElementById('postDetails');
-//                postDetailsDiv.innerHTML = `
-//                    <h2>${post.title}</h2>
-//                    <p>${post.content}</p>
-//                    <p>Posted by User ID: ${post.user_id}</p>
-//                    <div>❤️ ${post.likesnum}</div>
-//                `;
-//            } else {
-//                console.error('Post not found');
-//            }
-//        })
-//        .catch(error => console.error('Error fetching post details:', error));
-//}
 
 function fetchPostDetails(postId) {
-    fetch(`http://localhost:8000/posts/${postId}`)  // 使用你的 FastAPI 端点
+    fetch(`http://3.136.22.139:8000/posts/${postId}`)  // 使用你的 FastAPI 端点
         .then(response => response.json())
         .then(data => {
             console.log("Received data:", data);  // 打印查看接收到的数据
@@ -64,7 +43,7 @@ function fetchPostDetails(postId) {
 
 
 function fetchComments(postId) {
-    fetch(`http://localhost:8000/comments/post/${postId}`)  // 使用你的 FastAPI 端点
+    fetch(`http://3.136.22.139:8000/comments/post/${postId}`)  // 使用你的 FastAPI 端点
         .then(response => response.json())
         .then(comments => {
             const commentsDiv = document.getElementById('comments');
@@ -101,7 +80,7 @@ function attachLikeEventListeners() {
 
 // 更新评论的点赞数
 function updateCommentLikes(commentId, newLikes) {
-    fetch(`http://localhost:8000/comments/${commentId}/like`, {
+    fetch(`http://3.136.22.139:8000/comments/${commentId}/like`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -136,7 +115,7 @@ function submitComment(postId) {
     const longitude = 0.0;
     const location = "String";
 
-    fetch(`http://localhost:8000/comments/`, {  // 确保这个 URL 是正确的
+    fetch(`http://3.136.22.139:8000/comments/`, {  // 确保这个 URL 是正确的
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -33,7 +33,7 @@ function fetchUserPostsGraphQL(userId) {
         userId: userId
     };
 
-    fetch('http://localhost:8000/graphql', {  // Update with your actual GraphQL endpoint
+    fetch('http://3.136.22.139:8000/graphql', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ function fetchUserPostsGraphQL(userId) {
 
 
 function fetchPosts(author = '', keyword = '', page = 1, limit = postsPerPage) {
-    const baseUrl = 'http://localhost:8000/posts/'; // 替换为你的 FastAPI 微服务的实际 URL
+    const baseUrl = 'http://3.136.22.139:8000/posts/'; // 替换为你的 FastAPI 微服务的实际 URL
     const url = `${baseUrl}?skip=${(page - 1) * limit}&limit=${limit}${author ? '&author=' + author : ''}${keyword ? '&keyword=' + keyword : ''}`;
 
     fetch(url)
@@ -136,7 +136,7 @@ function submitNewPost() {
         user_id: 1 // 假设用户 ID
     };
 
-    fetch('http://localhost:8000/posts/', {
+    fetch('http://3.136.22.139:8000/posts/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -7,7 +7,7 @@ if (userId) {
 }
 
 function fetchUserPosts(userId) {
-    fetch(`http://localhost:8000/posts/user/${userId}`)
+    fetch(`http://3.136.22.139:8000/posts/user/${userId}`)
         .then(response => response.json())
         .then(posts => {
             const postsContainer = document.getElementById('myPosts');
@@ -27,7 +27,7 @@ function fetchUserPosts(userId) {
 }
 
 function fetchUserComments(userId) {
-    fetch(`http://localhost:8000/comments/user/${userId}`)
+    fetch(`http://3.136.22.139:8000/comments/user/${userId}`)
         .then(response => response.json())
         .then(comments => {
             const commentsContainer = document.getElementById('myComments');
@@ -46,7 +46,7 @@ function fetchUserComments(userId) {
 
 function deletePost(postId) {
     if (userId) {
-        fetch(`http://localhost:8000/posts/${postId}?user_id=${userId}`, {
+        fetch(`http://3.136.22.139:8000/posts/${postId}?user_id=${userId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ function deletePost(postId) {
 // 类似地，你可以添加 deleteComment 函数来处理评论的删除
 function deleteComment(commentId) {
     if (userId) {
-        fetch(`http://localhost:8000/comments/${commentId}?user_id=${userId}`, {
+        fetch(`http://3.136.22.139:8000/comments/${commentId}?user_id=${userId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -113,7 +113,7 @@ function updatePost(postId) {
     const title = document.getElementById('editPostTitle').value;
     const content = document.getElementById('editPostContent').value;
 
-    fetch(`http://localhost:8000/posts/${postId}?user_id=${userId}`, {
+    fetch(`http://3.136.22.139:8000/posts/${postId}?user_id=${userId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ function updatePost(postId) {
 function updateComment(commentId) {
     const content = document.getElementById('editCommentContent').value;
 
-    fetch(`http://localhost:8000/comments/${commentId}?user_id=${userId}`, {
+    fetch(`http://3.136.22.139:8000/comments/${commentId}?user_id=${userId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
